@@ -1,0 +1,222 @@
+html, body {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+body {
+  flex: 1 1 auto;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background: #f4f4f4;
+  padding: 8px 0;
+  border-bottom: 2px solid #ccc;
+  position: relative;
+}
+
+/* Bouton toggle */
+.toggle-btn {
+  display: none;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.toggle-btn:hover {
+  background: #005fa3;
+}
+
+#main-container.side-by-side {
+  display: flex;
+  flex-direction: row;
+  height: calc(100vh - 64px);
+  width: 100%;
+}
+
+#map-section, #tree-section {
+  flex: 1 1 50%;
+  height: 100%;
+  position: relative;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* CORRECTION CRITIQUE : Assurer que la carte Leaflet s'affiche correctement */
+#map {
+  height: 100% !important;
+  width: 100% !important;
+  position: relative;
+  z-index: 1; /* S'assurer que la carte est visible */
+}
+
+/* S'assurer que les éléments Leaflet ne sont pas cachés */
+.leaflet-container {
+  height: 100% !important;
+  width: 100% !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Forcer l'affichage des tuiles Leaflet */
+.leaflet-tile-pane {
+  z-index: 1 !important;
+}
+
+/* S'assurer que les marqueurs sont visibles */
+.leaflet-marker-pane {
+  z-index: 600 !important;
+}
+
+.leaflet-overlay-pane {
+  z-index: 400 !important;
+}
+
+/* Forcer l'affichage des CircleMarkers */
+.leaflet-interactive {
+  cursor: pointer !important;
+  opacity: 1 !important;
+}
+
+#tree-container, svg {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative;
+}
+
+/* Footer */
+footer {
+  background: #f4f4f4;
+  padding: 6px 0;
+  border-top: 2px solid #ccc;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Légende */
+.legend {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 8px;
+}
+
+.legend-item {
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.prelevement {
+  background: #ef4444;
+}
+
+.transformation {
+  background: #f97316;
+}
+
+.distribution {
+  background: #22c55e;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  text-align: left;
+  padding: 6px 10px;
+  font-size: 16px;
+  background: rgb(233, 234, 235);
+  border: 1px solid #777;
+  border-radius: 4px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 10000 !important; /* S'assurer que les tooltips sont visibles */
+}
+
+/* Boutons zoom */
+.zoom-controls {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 1000; /* Au-dessus de la carte */
+}
+
+.zoom-btn {
+  background: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.zoom-btn:hover {
+  background: #005fa3;
+}
+
+/* CORRECTIONS SUPPLÉMENTAIRES POUR LES MARQUEURS */
+
+/* Forcer l'affichage des éléments SVG de Leaflet */
+.leaflet-zoom-hide {
+  visibility: visible !important;
+}
+
+/* S'assurer que les paths (cercles) sont visibles */
+path.leaflet-interactive {
+  stroke-opacity: 1 !important;
+  fill-opacity: 0.8 !important;
+  stroke-width: 2 !important;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  #main-container.side-by-side {
+    flex-direction: column;
+    height: auto;
+  }
+  #map-section, #tree-section {
+    width: 100%;
+    height: 50vh;
+    border: none;
+    box-sizing: border-box;
+  }
+  .toggle-btn {
+    display: inline-block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    background: #0077cc;
+    color: white;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}

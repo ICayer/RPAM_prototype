@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    Cartographie des organisations en pêche et aquaculture du Québec maritime
+  </title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Librairies nécessaires -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+  <header>
+    <h1>
+      Cartographie des organisations en pêche et aquaculture du Québec maritime
+    </h1>
+    <!-- Le bouton toggle est caché car on affiche les 2 graphiques côte-à-côte -->
+    <button id="toggle-view" class="toggle-btn" style="display:none;">Basculer vers Arbre</button>
+  </header>
+
+  <main id="main-container" class="side-by-side">
+    <!-- Carte à gauche -->
+    <section id="map-section">
+      <div id="map"></div>
+    </section>
+
+    <!-- Arbre à droite -->
+    <section id="tree-section">
+      <div id="tree-container">
+        <div class="zoom-controls">
+          <button id="zoom-in" class="zoom-btn">+</button>
+          <button id="zoom-out" class="zoom-btn">−</button>
+          <button id="zoom-reset" class="zoom-btn">⟳</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>Légende</h2>
+    <div class="legend">
+      <span class="legend-item"><span class="legend-color prelevement"></span> 1 - Prélèvement</span>
+      <span class="legend-item"><span class="legend-color transformation"></span> 2 - Transformation</span>
+      <span class="legend-item"><span class="legend-color distribution"></span> 3 - Distribution</span>
+    </div>
+  </footer>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
