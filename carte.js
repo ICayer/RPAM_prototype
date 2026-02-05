@@ -45,7 +45,7 @@ export function carte() {
       "Baie-Comeau": [49.2176, -68.1485],
       "Percé": [48.5245, -64.2132],
       "Bonaventure": [48.0499, -65.4928],
-      "Maria": [48.1167, -66.0167],
+      "Maria": [48.17169888721023, -65.9860574900337],
       "Murdochville": [48.9667, -65.05],
       "Sainte-Madeleine-de-la-Rivière-Madeleine": [49.2333, -65.3333],
     };
